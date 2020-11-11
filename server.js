@@ -125,6 +125,18 @@ app.delete('/api/friends/:id', authenticator, (req, res) => {
   res.send(friends);
 });
 
+
+app.post("/api/logout", (req, res) => {
+  const { userToken } = req.body;
+  if (userToken === token) {
+    //remove token from db
+  }
+
+  res.status(200).json({
+    payload: token
+  });
+});
+
 function getNextId() {
   return nextId++;
 }
